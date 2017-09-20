@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BitcoinPayableDemo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class='clearfix'>
+      <div class='col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6'>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

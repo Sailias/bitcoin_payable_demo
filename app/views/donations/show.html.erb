@@ -1,0 +1,42 @@
+<div class='donations-show'>
+  <h2>Thank you for your donation!</h2>
+
+  <h4 class="donations-show-status">
+    Your donation of:
+    <span class='donation-show-amount'>$<%= @donation.amount %> CAD</span>
+    <%= donation_text(@donation) %>
+  </h4>
+
+  <dl class="donation-show-information">
+    <dt>Price (CAD)</dt>
+    <dd><%= price(@bitcoin_payment.price) %></dd>
+
+    <dt>Amount paid (CAD)</dt>
+    <dd><%= amount_paid(@bitcoin_payment) %></dd>
+
+    <dt>Amount Due (BTC)</dt>
+    <dd><%= btc_amount_due(@bitcoin_payment) %></dd>
+
+    <dt>Address</dt>
+    <dd class='address'><%= @bitcoin_payment.address %></dd>
+  </dl>
+
+  <%
+    qr = RQRCode::QRCode.new( "bitcoin://#{@bitcoin_payment.address}?amount=#{btc_amount_due(@bitcoin_payment)}&label=C4&message=C4%20Donation", :size => 9, :level => :h )
+  %>
+
+  <table class='qr-code'>
+    <% qr.modules.each_index do |x| %>
+      <tr>
+      <% qr.modules.each_index do |y| %>
+       <% if qr.dark?(x,y) %>
+        <td class="black" />
+       <% else %>
+        <td class="white" />
+       <% end %>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+  
+</div>
