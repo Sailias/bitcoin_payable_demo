@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Sailias/bitcoin_payable
-  revision: 0ade6ed07d804f98ce5c3f5e5be02ceb5df2259d
+  revision: 22696803b40d0ea1b0f1a5361cecb9fc654595ca
   branch: releases/rails-5.1
   specs:
     bitcoin_payable (0.6.0)
